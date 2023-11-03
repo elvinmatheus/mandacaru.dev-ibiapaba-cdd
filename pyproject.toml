@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "mandacaru-dev-ibiapaba-cdd"
+version = "0.1.0"
+description = "Projeto do desafio \"Análise de Sentimentos\" do bootcamp Mandacaru.dev - módulo Ibiapaba"
+authors = ["Elvin Matheus <elvinmatheussousa@gmail.com>"]
+readme = "README.md"
+packages = [{include = "mandacaru"}]
+
+[tool.poetry.dependencies]
+python = "^3.8.10"
+numpy = "^1.26.1"
+pandas = "^2.1.2"
+matplotlib = "^3.8.1"
+jupyterlab = "^4.0.8"
+seaborn = "^0.13.0"
+scikit-learn = "^1.3.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
