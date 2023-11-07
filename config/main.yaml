@@ -1,0 +1,6 @@
+dataset:
+  name: sbhatti/financial-sentiment-analysis
+  path: data/raw/
+
+data:
+  raw: data/raw/data.csv
