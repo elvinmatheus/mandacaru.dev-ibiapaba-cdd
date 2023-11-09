@@ -7,6 +7,8 @@ Resumo do projeto. Justificativa. Coloque [graphical abstracts](https://www.else
 - [Elvin]()
 - [Said]()
 - [Carlos]()
+- [Luann]()
+- [Amarildo]()
 
 ## Instruções
 
