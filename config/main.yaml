@@ -4,3 +4,7 @@ dataset:
 
 data:
   raw: data/raw/data.csv
+
+  interim: data/interim/data.csv
+  
+  processed: data/processed/data.csv
