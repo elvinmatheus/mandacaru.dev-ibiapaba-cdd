@@ -1,7 +1,6 @@
 import re
 
 from nltk.stem import PorterStemmer
-from sklearn.feature_extraction.text import CountVectorizer
 
 
 def lowercase(text: str) -> str:
@@ -36,6 +35,7 @@ def process(text: str):
     text = remove_whitespace(text)
     text = stem_words(text)
     return text
+
 
 def map_to_sentiment(value):
     return "Positivo" if value == 1 else "Negativo"
