@@ -29,17 +29,13 @@ def stem_words(text: str) -> str:
     return " ".join(stemmed_words)
 
 
-def vectorize(text: str):
-    count_vec = CountVectorizer(binary=True)
-    count_vec.fit([text])
-    return count_vec.transform([text])
-
-
 def process(text: str):
     text = lowercase(text)
     text = remove_punkt(text)
     text = remove_numbers(text)
     text = remove_whitespace(text)
     text = stem_words(text)
-    vector = vectorize(text)
-    return vector
+    return text
+
+def map_to_sentiment(value):
+    return "Positivo" if value == 1 else "Negativo"

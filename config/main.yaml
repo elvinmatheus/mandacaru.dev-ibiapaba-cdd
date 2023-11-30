@@ -9,3 +9,4 @@ data:
 
 models:
   dt: models/dt.joblib
+  cv: models/cv.joblib
