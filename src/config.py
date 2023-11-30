@@ -13,7 +13,13 @@ class Data:
 
 
 @dataclass
+class Models:
+    dt: str
+
+
+@dataclass
 class MainConfig:
     dataset: DataSet
     data: Data
+    models: Models
     log_level: str = "INFO"
