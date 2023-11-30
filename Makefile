@@ -12,9 +12,13 @@ load:
 
 docs:
 	@echo "Save documentation to docs... "
-	pdoc src -o docs --force
+	poetry run pdoc src -o docs --force
 	@echo "View API documentation... "
-	pdoc src --http localhost:7777
+	poetry run pdoc src --http localhost:7777
+
+api:
+	@echo "Running API locally..."
+	poetry run uvicorn src.api:app --reload
 
 tests:
 	@echo "Running tests..."
@@ -24,4 +28,4 @@ clean:
 	@echo cleaning...
 	find . -type d -name "__pycache__" -exec rm -rf {} ';'
 
-.PHONY: shell install data clean docs tests
+.PHONY: shell install data clean docs tests api
