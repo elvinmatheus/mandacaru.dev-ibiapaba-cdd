@@ -15,6 +15,7 @@ class Data:
 @dataclass
 class Models:
     dt: str
+    cv: str
 
 
 @dataclass
