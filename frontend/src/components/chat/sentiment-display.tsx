@@ -1,32 +1,45 @@
 "use client";
 
 import { useSentimentContext } from "@/contexts/sentiment-context";
+import Image from "next/image";
 
 const SentimentDisplay = () => {
   const { currentSentiment: sentiment } = useSentimentContext();
-  return (
-    <div
-      className={`w-1/2 hidden md:flex transition-all duration-1000 delay-300 items-center justify-center ${
-        sentiment === "negative"
-          ? "bg-[#F87171]"
-          : sentiment === "positive"
-          ? "bg-[#a8d8a7]"
-          : "bg-[#c8cccd]"
-      }`}
-    >
-      <img
-        alt="Sentiment Image"
-        className="object-cover object-center rounded-full"
-        height="500"
-        src="/placeholder.svg"
-        style={{
-          aspectRatio: "500/500",
-          objectFit: "cover",
-        }}
-        width="500"
-      />
-    </div>
-  );
+  switch (sentiment) {
+    case "negative":
+      return (
+        <div className="w-1/2 hidden md:flex transition-all duration-1000 delay-300 items-center justify-center bg-[#F87171]">
+          <Image
+            src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Disappointed%20Face.png"
+            alt="Disappointed Face"
+            width="500"
+            height="500"
+          />
+        </div>
+      );
+    case "positive":
+      return (
+        <div className="w-1/2 hidden md:flex transition-all duration-1000 delay-300 items-center justify-center bg-[#a8d8a7]">
+          <Image
+            src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Beaming%20Face%20with%20Smiling%20Eyes.png"
+            alt="Beaming Face with Smiling Eyes"
+            width="500"
+            height="500"
+          />
+        </div>
+      );
+    default:
+      return (
+        <div className="w-1/2 hidden md:flex transition-all duration-1000 delay-300 items-center justify-center bg-[#c8cccd]">
+          <Image
+            src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Neutral%20Face.png"
+            alt="Neutral Face"
+            width="500"
+            height="500"
+          />
+        </div>
+      );
+  }
 };
 
 export default SentimentDisplay;

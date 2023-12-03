@@ -12,12 +12,14 @@ const SentimentInput = () => {
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     sendNewMessage(message);
+    setMessage("");
   };
 
   return (
     <div className="flex space-x-4">
       <Input
         placeholder="Type a message"
+        value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
       <Button
