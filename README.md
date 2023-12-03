@@ -1,6 +1,6 @@
 # Titulo do projeto
-Resumo do projeto. Justificativa. Coloque [graphical abstracts](https://www.elsevier.com/authors/tools-and-resources/graphical-abstract)
 
+Resumo do projeto. Justificativa. Coloque [graphical abstracts](https://www.elsevier.com/authors/tools-and-resources/graphical-abstract)
 
 ## Desenvolvedores
 
@@ -44,4 +44,12 @@ Ele irá instalar todas as dependências contidas no arquivo `pyproject.toml`. D
 
 ```
 poetry shell
+```
+
+### Rodar em `produção`
+
+Baixe o docker e rode o comando que ele ja vai funcionar
+
+```bash
+docker compose up
 ```
