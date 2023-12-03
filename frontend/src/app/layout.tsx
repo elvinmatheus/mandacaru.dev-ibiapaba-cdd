@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/ui/navbar";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/ui/footer";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <body
           className={cn("min-h-screen flex flex-col bg-white", inter.className)}
         >
+          <Toaster position="top-right"/>
           <Navbar />
           {children}
           <Footer />
