@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <html lang="en" suppressHydrationWarning>
+      <html lang="en" suppressHydrationWarning className="scroll-smooth">
         <head />
         <body
           className={cn("min-h-screen flex flex-col bg-white", inter.className)}
