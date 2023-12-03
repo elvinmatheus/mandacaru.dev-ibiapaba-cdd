@@ -57,7 +57,4 @@ def sentiment_analysis(text: str):
 
     bard = BardCookies(cookie_dict=cookie_dict)
 
-    return bard.get_answer(prompt)['content']
-
-resposta = sentiment_analysis("A ação da Petrobras está em alta.")
-print(resposta)
+    return bard.get_answer(prompt)["content"]
