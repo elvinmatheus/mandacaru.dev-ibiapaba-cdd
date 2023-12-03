@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  frontend:
+    container_name: frontend-mandacaru
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:8000
+    ports:
+      - 80:80
+    depends_on:
+      - backend
+  backend:
+    container_name: backend-mandacaru
+    build:
+      context: ./
+    ports:
+      - 8000:8000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/docs"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
