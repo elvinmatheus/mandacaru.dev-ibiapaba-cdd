@@ -62,8 +62,10 @@ export const SentimentContextProvider = ({
   const [isLoading, setIsLoading] = useState(false);
 
   const postMessage = async (message: string): Promise<void> => {
+    const endpoint = process.env.NEXT_PUBLIC_API_URL as string;
+    const path = "/send_text";
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_API_URL as string, {
+      const response = await fetch(endpoint + path, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
