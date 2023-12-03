@@ -39,9 +39,9 @@ def send_text(req: Request) -> Response:
 
     return Response(sentiment=map_to_sentiment(resultado))
 
+
 @app.post("/ia_send_text")
 def ia_send_text(req: Request) -> Response:
-
     resultado = sentiment_analysis(req.text)
     print(resultado)
     return Response(sentiment=resultado)
