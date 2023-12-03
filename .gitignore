@@ -95,3 +95,6 @@ outputs
 # data
 
 /docs/
+
+# yaml file
+config/dev_config.yaml

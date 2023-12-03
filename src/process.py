@@ -1,7 +1,8 @@
 import re
-
+from bardapi import BardCookies
 from nltk.stem import PorterStemmer
-
+from hydra import initialize, compose
+import os
 
 def lowercase(text: str) -> str:
     return text.lower()
@@ -39,3 +40,24 @@ def process(text: str):
 
 def map_to_sentiment(value):
     return "Positivo" if value == 1 else "Negativo"
+
+
+def sentiment_analysis(text: str):
+
+    with initialize(version_base=None, config_path="../config/"):
+        cfg = compose(config_name="dev_config")
+
+    cookie_dict = {
+        "__Secure-1PSID": cfg.cookie.__Secure_1PSID,
+        "__Secure-1PSIDTS": cfg.cookie.__Secure_1PSIDTS,
+        "__Secure-1PSIDCC": cfg.cookie.__Secure_1PSIDCC,
+    }
+
+    prompt = f"Defina o texto como positivo ou negativo: {text}. Não faça nada além de definir o sentimento do texto."
+
+    bard = BardCookies(cookie_dict=cookie_dict)
+
+    return bard.get_answer(prompt)['content']
+
+resposta = sentiment_analysis("A ação da Petrobras está em alta.")
+print(resposta)
