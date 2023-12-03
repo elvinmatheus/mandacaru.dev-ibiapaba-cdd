@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from hydra import compose, initialize
 from joblib import load
 from pydantic import BaseModel
@@ -10,6 +11,13 @@ with initialize(version_base=None, config_path="../config/"):
 
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 modelo = load(f"{cfg.models.dt}")
 vetorizador = load(f"{cfg.models.cv}")
 
