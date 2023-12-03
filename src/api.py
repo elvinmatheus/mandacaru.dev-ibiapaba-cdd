@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from hydra import compose, initialize
 from joblib import load
 from pydantic import BaseModel
@@ -10,6 +11,13 @@ with initialize(version_base=None, config_path="../config/"):
 
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 modelo = load(f"{cfg.models.dt}")
 vetorizador = load(f"{cfg.models.cv}")
 
@@ -31,9 +39,9 @@ def send_text(req: Request) -> Response:
 
     return Response(sentiment=map_to_sentiment(resultado))
 
+
 @app.post("/ia_send_text")
 def ia_send_text(req: Request) -> Response:
-
     resultado = sentiment_analysis(req.text)
     print(resultado)
     return Response(sentiment=resultado)

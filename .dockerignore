@@ -1,0 +1,11 @@
+.dockerignore
+.gitignore
+Dockerfile
+docker-compose.yaml
+frontend
+README.md
+docs
+data
+notebooks
+tests
+Makefile

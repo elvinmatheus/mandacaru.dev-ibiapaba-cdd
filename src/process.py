@@ -4,6 +4,7 @@ from nltk.stem import PorterStemmer
 from hydra import initialize, compose
 import os
 
+
 def lowercase(text: str) -> str:
     return text.lower()
 
@@ -43,7 +44,6 @@ def map_to_sentiment(value):
 
 
 def sentiment_analysis(text: str):
-
     with initialize(version_base=None, config_path="../config/"):
         cfg = compose(config_name="dev_config")
 
