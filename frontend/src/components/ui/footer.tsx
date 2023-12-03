@@ -11,13 +11,13 @@ const Footer = () => {
         <nav className="flex gap-4">
           <Link
             className="text-sm hover:underline hover:text-[#ff6b6b]"
-            href="#"
+            href="/#"
           >
             Terms of Service
           </Link>
           <Link
             className="text-sm hover:underline hover:text-[#ff6b6b]"
-            href="#"
+            href="/#"
           >
             Privacy Policy
           </Link>
