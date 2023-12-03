@@ -14,6 +14,7 @@ const SentimentDisplay = () => {
             alt="Disappointed Face"
             width="500"
             height="500"
+            priority
           />
         </div>
       );
@@ -25,6 +26,7 @@ const SentimentDisplay = () => {
             alt="Beaming Face with Smiling Eyes"
             width="500"
             height="500"
+            priority
           />
         </div>
       );
@@ -36,6 +38,7 @@ const SentimentDisplay = () => {
             alt="Neutral Face"
             width="500"
             height="500"
+            priority
           />
         </div>
       );

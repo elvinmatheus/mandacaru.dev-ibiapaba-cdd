@@ -8,6 +8,7 @@ import {
   useMemo,
   useState,
 } from "react";
+import toast from "react-hot-toast";
 
 export type SentimentType = "positive" | "negative";
 
@@ -37,6 +38,19 @@ export const useSentimentContext = () => {
   return context;
 };
 
+const mapSentimentResponseToSentimentType = (
+  sentiment: string,
+): SentimentType => {
+  switch (sentiment) {
+    case "Negativo":
+      return "negative";
+    case "Positivo":
+      return "positive";
+    default:
+      throw new Error("Invalid sentiment");
+  }
+};
+
 export const SentimentContextProvider = ({
   children,
 }: {
@@ -47,17 +61,41 @@ export const SentimentContextProvider = ({
     useState<SentimentType | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const sendNewMessage = useCallback(
-    (message: string) => {
-      setIsLoading(true);
+  const postMessage = async (message: string): Promise<void> => {
+    try {
+      const response = await fetch(process.env.NEXT_PUBLIC_API_URL as string, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ text: message }),
+      });
+      const { sentiment } = await response.json();
+      const mappedSentiment = mapSentimentResponseToSentimentType(sentiment);
       setSentimentsHistory((prev) => [
         ...prev,
-        { sentiment: "positive", message },
+        { sentiment: mappedSentiment, message },
       ]);
       setIsLoading(false);
-      setCurrentSentiment("positive");
+      setCurrentSentiment(mappedSentiment);
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  };
+
+  const sendNewMessage = useCallback(
+    async (message: string) => {
+      setIsLoading(true);
+      toast.promise(postMessage(message), {
+        loading: "Analyzing sentiment...",
+        success: "Sentiment analyzed!",
+        error: "Error analyzing sentiment",
+      });
+      setIsLoading(false);
     },
-    [setIsLoading, setSentimentsHistory],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [setIsLoading, setCurrentSentiment, setSentimentsHistory],
   );
 
   const contextValue = useMemo(() => {
