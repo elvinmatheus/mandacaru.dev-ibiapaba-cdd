@@ -45,6 +45,7 @@ const Navbar = () => {
         </Link>
         <div className="border-r-2 border-gray-300 h-6 mx-4" />
         <nav className="ml-auto flex gap-4 sm:gap-6">
+          <NavLink href="/">Home</NavLink>
           <NavLink href="/chat">Chat</NavLink>
           <NavLink href="/about">About</NavLink>
         </nav>
