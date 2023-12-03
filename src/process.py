@@ -2,7 +2,6 @@ import re
 from bardapi import BardCookies
 from nltk.stem import PorterStemmer
 from hydra import initialize, compose
-import os
 
 
 def lowercase(text: str) -> str:
