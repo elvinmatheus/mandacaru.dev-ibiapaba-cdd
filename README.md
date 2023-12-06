@@ -6,7 +6,7 @@ Neste projeto, buscamos avaliar o sentimento associado a frases em inglês relac
 
 - [Amarildo Filho](https://github.com/amarildorfilho)
 - [Carlos Gutiérrez](https://github.com/Ingenieco)
-- [Elvin Silva](hhttps://github.com/elvinmatheus)
+- [Elvin Silva](https://github.com/elvinmatheus)
 - [Luann Alves](https://github.com/Lonalt)
 - [Said Rodrigues](https://github.com/talDoFlemis)
 
